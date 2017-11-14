@@ -1,0 +1,32 @@
+<!-- This is how to write a comment in HTML! -->
+
+<html>
+
+  <head>
+    <title>Add friends!</title>
+  </head>
+  
+  <body>
+    {% if viewFriends %}
+    <h2>followings are names of your friends</h2>
+    {% for friendName in viewFriends %}
+        <li>{{ friendName }}</li>
+    {% endfor %}
+
+    <br>
+    <form method="post" action="/friend/">
+        lets add new friends<br><input type="email" name="new email" placeholder="enter friends email" required>
+        <input type="submit" value="add friend!">
+    </form>
+
+    {% endif %}
+    <!-- Create a form to pass information -->
+
+      
+<ul>
+<li><a href='/'>Home</a> </li> 
+</ul>
+    
+  </body>
+
+</html>

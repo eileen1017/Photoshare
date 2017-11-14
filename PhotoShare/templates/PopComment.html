@@ -1,0 +1,42 @@
+<!-- author ben lawson (balawson@bu.edu) -->
+<!doctype html>
+
+<title>Comments</title>
+
+{% if name %}
+  <h1>Hello {{ name }}!</h1>
+{% endif %}
+
+{% if message %}
+    <h2>{{message}}</h2>
+    {% endif %}
+
+{% if comments %}
+      <ul>
+      {% for c in comments %}
+      <li>{{c[0]}}</li> 
+      {% endfor %}
+      </ul>
+    {% endif %}
+
+<form method="POST" action="/PopComment/">
+        lets search Comment<br>
+        <input name = "comment" placeholder="enter comment here" required = True>
+        <input type="submit" value="search by comment!">
+</form>
+
+
+{% if photos %}
+<h2>Check out some photos!</h2>
+    <ul>
+    {% for photo in photos %}
+
+        <li><p>picture id: </p>{{photo[0]}} <p> picture caption: </p>{{photo[2]}}<br>
+        <img src='data:image/png;base64, {{photo[1]}}'/></li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+<ul>
+<li><a href='/'>Home</a></li>
+</ul>

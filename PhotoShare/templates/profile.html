@@ -1,0 +1,29 @@
+<!doctype html>
+{% if message %}
+<h3>{{message}}!</h3>
+{% endif %}
+<title>Photoshare</title>
+{% if name %}
+<h1>Hello {{ name }}!</h1>
+{% endif %}
+
+{% if message is none %}
+<p>You should <a href='/login'>login!</a></p>
+{% endif %}
+
+
+<ul>
+    <li><a href="/MyPhoto">My Photos</a></li>
+    <li><a href="/AllPhotos">All Photos</a></li>
+    <li><a href='/CreateAlbum'>My Albums</a></li>
+    <li><a href='/upload'>Upload Photos</a></li>
+    <li><a href="/tags">View By Tags</a></li>
+    <li><a href="/PopComment">View By Comments</a></li>
+    <li><a href='/friend'>My Friends</a></li>
+    <li><a href='/userActivity'>User Activity</a></li>
+    <li><a href='/recommondfriend'>Friend Recommendations</a></li>
+    <li><a href='/logout'>Logout</a></li>
+    <li><a href='/'>Home</a></li>
+    
+
+</ul>

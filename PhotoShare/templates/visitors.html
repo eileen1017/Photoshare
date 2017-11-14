@@ -1,0 +1,31 @@
+<!doctype html>
+{% if message %}
+  <h4>{{message}}!</h4>
+{% endif %}
+<title>Photoshare</title>
+{% if name %}
+  <h1>Hello {{ name }}!</h1>
+{% endif %}
+
+{% if photos %}
+<h2>Check out some photos!</h2>
+    <ul>
+    {% for photo in photos %}
+
+        <li><p>picture id: </p>{{photo[0]}} <p> picture caption: </p>{{photo[2]}}<br>
+        <img src='data:image/png;base64, {{photo[1]}}'/></li>
+        <form action="/VisComment/" method="POST">
+       <p>comment:<input type="text" name="text" /></p>
+       <p>date:<input type="text" name="date" /></p>
+       <input type="hidden" name="picture_id" value={{photo[0]}} />
+      <input type="submit" name="Submit" /> 
+      </form>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+<ul>
+
+<li><a href='/logout'>Home</a> </li> 
+</ul>
+

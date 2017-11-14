@@ -1,0 +1,42 @@
+<!-- author ben lawson (balawson@bu.edu) -->
+<!-- author ben lawson (balawson@bu.edu) -->
+
+<html>
+    <head>
+        <title>Photos</title>
+    </head>
+  
+    <body>
+        {% if message %}
+        <h2>{{message}}</h2>
+        {% endif %}
+
+        <div class="title">
+            <h1>Upload a photo to Photoshare</h1>
+        </div>
+            <form method="post" enctype="multipart/form-data" action="/upload/">
+                <label for="photo">Select photo:</label>
+                <input type="file" name="photo" required='true' /><br />
+                <label for="caption">Please caption:</label>
+                <input type="text" name="caption" required='true' /><br />
+                Please pick an album
+                <select name="album_id" id="album_id" required>
+                    {% for album in viewAlbums %}
+
+                    <option value="{{ album }}">{{ album[0] }}</option>
+
+                    {% endfor %}
+                </select>
+                <br><br>
+                <label for="tag">Please tag:</label>
+                <input type="text" name="tag" placeholder="split by comma, no space please" />
+                <br><br>
+                <input type="submit" value="Upload" />
+            </form>
+
+    <ul>
+        <li><a href='/'>Home</a></li>
+
+    </ul>
+    </body>
+</html>

@@ -1,0 +1,43 @@
+<!-- author ben lawson (balawson@bu.edu) -->
+<!doctype html>
+
+<title>tags</title>
+
+{% if name %}
+  <h1>Hello {{ name }}!</h1>
+{% endif %}
+
+{% if message %}
+    <h2>{{message}}</h2>
+    {% endif %}
+
+{% if tags %}
+      <ul>
+      {% for tag in tags %}
+      <li><a href='/tag?tag={{tag[0]}}'>{{tag[0]}}</a> </li> 
+      {% endfor %}
+      </ul>
+    {% endif %}
+
+<form method="POST" action="/tags/">
+        lets search tag<br>
+        <input type="myphoto" name = "word" placeholder="enter tag from above">
+        <input type="submit" value="search by my photo!">
+        <input type="submit" value="search by all photos!">
+</form>
+
+
+{% if photos %}
+<h2>Check out some photos!</h2>
+    <ul>
+    {% for photo in photos %}
+
+        <li><p>picture id: </p>{{photo[0]}} <p> picture caption: </p>{{photo[2]}}<br>
+        <img src='data:image/png;base64, {{photo[1]}}'/></li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+<ul>
+<li><a href='/'>Home</a></li>
+</ul>

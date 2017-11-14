@@ -1,0 +1,24 @@
+<html>
+
+  <head>
+    <title>friends recommond!</title>
+  </head>
+  
+  <body>
+    {% if viewFriends %}
+    <h2>Top Rated Friend Recommendation!</h2>
+    {% for emails in viewFriends %}
+        <li>{{ emails }}</li>
+    {% endfor %}
+    <br>
+    {% endif %}
+    <!-- Create a form to pass information -->
+
+      
+<ul>
+  <li><a href='/'>Home</a></li>
+</ul>
+    
+  </body>
+
+</html>

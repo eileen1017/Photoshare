@@ -1,0 +1,80 @@
+<!-- <html>
+    <head>
+        <title>MyPhotos</title>
+    </head>
+  
+    <body>
+        {% if message %}
+        <h2>{{message}}</h2>
+        {% endif %}
+
+        <div class="title">
+            <h1>View your photos</h1>
+        </div>
+            <form method="post" enctype="multipart/form-data" action="/upload/">
+                {% if photos %}
+                <h2>Check out some photos!</h2>
+                <ul>
+                    {% for photo in photos %}
+                    <li><p>picture id: </p>{{photo[3]}} <p> picture caption: </p>{{photo[2]}}<br>
+                        <img src='data:image/png;base64, {{photo[0]}}'/></li>
+                        <form action="/MyPhoto/" method="POST">
+                            <input type="hidden" name="picture_id" value={{photo[3]}} />
+                            <input type="checkbox" name="like" value="yes" > like this photo<br>
+                            <input type="submit" name="Submit" /> 
+                        </form>
+                        <form action="/deletephoto/" method="POST">
+                            <input type="hidden" name="picture_id" value={{photo[3]}} />
+                            <input type="checkbox" name="delete" value="yes" > delete this photo<br>
+                            <input type="submit" name="Submit" /> 
+                        </form>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </form>
+        </body>
+    <ul>
+        <li><a href='/'>Home</a></li>
+
+    </ul>
+</html>
+<! author ben lawson (balawson@bu.edu) -->
+<!doctype html>
+{% if message %}
+  <h4>{{message}}!</h4>
+{% endif %}
+<title>Photoshare</title>
+{% if name %}
+  <h1>Hello {{ name }}!</h1>
+{% endif %}
+
+<h2>Check out some photos!</h2>
+    <ul>
+{% if photos %}
+    {% for photo in photos %}
+        <li><p>picture id: {{photo[3]}}</p> <p> picture caption: {{photo[2]}}</p><br>
+        <img src='data:image/png;base64, {{photo[0]}}'/></li>
+        <form action="/MyPhoto/" method="POST">
+        <input type="hidden" name="picture_id" value={{photo[3]}} />
+        <input type="checkbox" name="like" value="yes" > like this photo<br>
+        <input type="submit" name="Submit" /> 
+        </form>
+        <form action="/deletephoto/" method="POST">
+        <input type="hidden" name="picture_id" value={{photo[3]}} />
+        <input type="checkbox" name="delete" value="yes" > delete this photo<br>
+        <input type="submit" name="Submit" /> 
+        </form>
+    {% endfor %}
+{% endif %}
+</ul>
+
+
+<script>
+function msg() {
+    alert("Liked this photo");
+}
+</script>
+
+<ul>
+<li><a href='/'>Home</a></li>
+</ul>
